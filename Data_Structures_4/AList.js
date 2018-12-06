@@ -44,3 +44,20 @@ function nth(list, num) {
     }
   	return head.value;
 }
+
+// alt version: recursive
+function nth(list, num) {
+  if (num < 0)
+    return undefined;
+  return nthRec(list, num, 0);
+}
+
+function nthRec(list, num, ind) {
+	let head = list;
+  	if (ind < num)
+      return nthRec(list.rest, num, ind+1);
+  	else if (ind > num)
+      return undefined;
+  	else
+      return head.value;
+}
